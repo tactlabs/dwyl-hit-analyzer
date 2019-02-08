@@ -56,7 +56,9 @@ def print_file(filename):
         try:
             dbu.add_dwyl(db, g_link, hit_code, hit_n_code)
         except MySQLdb.IntegrityError:
-            print('Integrity error')
+            print('Duplicate Entry, so skipping')
+        except MySQLdb.OperationalError:
+            print('OperationalError error')            
         
 
         #print(x)    
